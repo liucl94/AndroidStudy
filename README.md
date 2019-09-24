@@ -1,1 +1,1 @@
-# AndroidStudy 20190925
+# AndroidStudy
