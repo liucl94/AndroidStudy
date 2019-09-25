@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TextActivity"
+    android:orientation="vertical">
+
+    <!--ScrollView:同一个ScrollView下只能有一个标签，想要添加多个，可以将多个放在一个布局里
+        上下拉动的进度条-->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/long_text"
+            android:textSize="22sp"
+            android:textColor="#00ffff"
+            android:lineSpacingExtra="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/abc"
+            android:textSize="22sp"
+            android:textColor="#00ffff"
+            android:lineSpacingExtra="10dp"/>
+
+    </LinearLayout>
+    
+</ScrollView>

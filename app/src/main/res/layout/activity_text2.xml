@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TextActivity"
+    android:orientation="vertical">
+
+    <!--singleLine:设置单行文本
+        Line:1 设置单行文本-->
+    <!--ellipsize:start 设置省略号的位置
+        focusable:设置可以获取焦点
+        focusableInTouchMode:设置触摸时可以获取焦点
+        marqueeRepeatLimit:设置跑马灯的时长-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:lineSpacingExtra="10dp"
+        android:text="@string/long_text"
+        android:textColor="#00ffff"
+        android:textSize="22sp"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"/>
+    
+</LinearLayout>
