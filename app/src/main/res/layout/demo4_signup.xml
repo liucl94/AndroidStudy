@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up"
+        android:textSize="30sp"
         android:layout_marginTop="40dp"/>
 
     <TextView
@@ -30,28 +31,49 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="5dp"
+        android:inputType="text"
+        android:hint="Name and Surname"
+        android:gravity="center"
+        android:textColorHint="#cccccc"
+        android:background="@mipmap/border"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="5dp"
+        android:inputType="textEmailAddress"
+        android:hint="Email Address"
+        android:gravity="center"
+        android:textColorHint="#cccccc"
+        android:background="@mipmap/border"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="5dp"
+        android:inputType="phone"
+        android:hint="Phone"
+        android:gravity="center"
+        android:textColorHint="#cccccc"
+        android:background="@mipmap/border"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="5dp"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:gravity="center"
+        android:textColorHint="#cccccc"
+        android:maxLength="12"
+        android:background="@mipmap/border"/>
 
     <Button
         android:layout_width="match_parent"
