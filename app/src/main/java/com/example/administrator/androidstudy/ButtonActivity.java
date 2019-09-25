@@ -20,6 +20,16 @@ public class ButtonActivity extends AppCompatActivity {
 
         //2.为按钮注册点击事件监听器
         btn1.setOnClickListener(mcl);
+
+        Button btn2 = findViewById(R.id.btn2);
+        btn2.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                //在控制台输出
+                Log.e("Tag", "点击了注册匿名内部类事件监听器对象的按钮");
+            }
+        });
     }
 
     class MyOnClickListener implements View.OnClickListener{
