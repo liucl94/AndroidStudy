@@ -7,12 +7,19 @@
     android:background="@mipmap/bg"
     android:gravity="center_horizontal">
 
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:visibility="invisible"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:textSize="30sp"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,6 +34,7 @@
         android:src="@mipmap/add_photo" />
 
     <EditText
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -63,6 +71,7 @@
         android:background="@mipmap/border"/>
 
     <EditText
+        android:id="@+id/pwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -82,6 +91,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
         android:background="@mipmap/btn"
-        android:text="Register"/>
+        android:text="Register"
+        android:onClick="register"/>
 
 </LinearLayout>
