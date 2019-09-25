@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class ButtonActivity extends AppCompatActivity {
+public class ButtonActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,14 @@ public class ButtonActivity extends AppCompatActivity {
                 Log.e("Tag", "点击了注册匿名内部类事件监听器对象的按钮");
             }
         });
+
+        Button btn3 = findViewById(R.id.btn3);
+        btn3.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Log.e("Tag", "通过Activity实现点击事件接口");
     }
 
     class MyOnClickListener implements View.OnClickListener{
