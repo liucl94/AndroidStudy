@@ -26,8 +26,10 @@
         android:text="通过当前Activity实现点击事件接口"/>
 
     <Button
+        android:id="@+id/btn4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="通过XML布局文件属性绑定点击事件" />
+        android:text="通过XML布局文件属性绑定点击事件"
+        android:onClick="myClick"/>
 
 </LinearLayout>

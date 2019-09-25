@@ -40,6 +40,10 @@ public class ButtonActivity extends AppCompatActivity implements View.OnClickLis
         Log.e("Tag", "通过Activity实现点击事件接口");
     }
 
+    public void myClick(View v){
+        Log.e("Tag", "XML事件绑定按钮");
+    }
+
     class MyOnClickListener implements View.OnClickListener{
 
         @Override
