@@ -111,7 +111,7 @@
             android:textSize="24sp"
             android:layout_height="match_parent"/>
         <Button
-            android:text="#"
+            android:text="="
             android:textSize="24sp"
             android:layout_height="match_parent"/>
 
