@@ -6,4 +6,20 @@
     <string name="abc">
         这是abc的内容
     </string>
+    <string name="start_select_food">开始选餐</string>
+    <string name="name">姓名</string>
+    <string name="edit_text_input_hint_name">请输入姓名</string>
+    <string name="sex">性别</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="fancy_food">喜好</string>
+    <string name="hot_tasting">辣</string>
+    <string name="fish_tasting">海鲜</string>
+    <string name="sour_tasting">酸</string>
+    <string name="budget_name">预算</string>
+    <string name="start_budget">0元</string>
+    <string name="end_budget">100元</string>
+    <string name="next_dishes">下一个</string>
+    <string name="food_full_message">显示信息</string>
+    <string name="search_dishes_name">寻找菜品</string>
 </resources>
