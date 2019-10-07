@@ -2,6 +2,8 @@ package com.example.administrator.androidstudy;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -37,6 +39,7 @@ public class MealsChooseActivity extends AppCompatActivity {
     private boolean mIsHot;
     private boolean mIsSour;
     private int mPrice;
+    private int mCurrentIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,23 @@ public class MealsChooseActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
+        //设置EditText监听器
+        mNameEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                mPerson.setName(s.toString());
+            }
+        });
         //设置单选框监听器
         mSexRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -60,8 +80,10 @@ public class MealsChooseActivity extends AppCompatActivity {
                 switch(checkedId){
                     case R.id.maleRadioButton :
                         mPerson.setSex("男");
+                        break;
                     case R.id.femaleRadioButton :
                         mPerson.setSex("女");
+                        break;
                 }
             }
         });
@@ -99,22 +121,76 @@ public class MealsChooseActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 mPrice = seekBar.getProgress();
-                Toast.makeText(MealsChooseActivity.this, "价格" + mPrice, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MealsChooseActivity.this, "价格:" + mPrice, Toast.LENGTH_SHORT).show();
             }
         });
         //设置按钮监听器
         mSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                search();
             }
         });
         mShowToggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //下一个时
+                if(mShowToggleButton.isChecked()){
+                    mCurrentIndex++;
+                    //如果结果列表不为空，显示下一个菜品
+                    if (mFoodResult != null && mFoodResult.size() > mCurrentIndex ){
+                        mFoodImageView.setImageResource(mFoodResult.get(mCurrentIndex).getPicture());
+                    }
+                    //否则提示用户没有啦
+                    else {
+                        Toast.makeText(MealsChooseActivity.this, "没有啦", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                //显示信息时
+                else {
+                    //如果结果列表不为空，显示下一个菜品信息
+                    if (mFoodResult != null && mFoodResult.size() > mCurrentIndex ){
+                        Toast.makeText(MealsChooseActivity.this, "用户名：" + mPerson.getName() + "\r\n性别：" + mPerson.getSex() + "\r\n菜名：" + mFoodResult.get(mCurrentIndex).getName() + "\r\n价格：" + mFoodResult.get(mCurrentIndex).getPrice(), Toast.LENGTH_SHORT).show();
+                    }
+                    //否则提示用户没有啦
+                    else {
+                        Toast.makeText(MealsChooseActivity.this, "没有啦", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
+    }
+
+    //查找菜品
+    private void search() {
+
+        //如果为空则初始化
+        if (mFoodResult == null){
+            mFoodResult = new ArrayList<>();
+        }
+        //清空上一次的结果列表
+        mFoodResult.clear();
+        //结果列表的当前菜品
+        mCurrentIndex = 0;
+        //遍历所有菜
+        for (Food food: mFoods
+             ) {
+            //菜品价格小于用户设置的价格并且口味有一个符合
+            if (food.getPrice() < mPrice &&
+                    (food.isHot() == mIsHot || food.isFish() == mIsFish || food.isSour() == mIsSour)){
+                //符合条件的结果加入结果列表中
+                mFoodResult.add(food);
+            }
+        }
+        //如果结果列表不为空且结果列表有至少有一个菜品，则表示第一个结果列表的菜品图片
+        if (mFoodResult != null && mFoodResult.size() > mCurrentIndex ){
+            mFoodImageView.setImageResource(mFoodResult.get(mCurrentIndex).getPicture());
+            Toast.makeText(MealsChooseActivity.this, "为您找到" + mFoodResult.size() +"道菜！", Toast.LENGTH_SHORT).show();
+        }
+        //否则提示用户没有符合条件的菜
+        else {
+            Toast.makeText(MealsChooseActivity.this, "没有符合条件的菜", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void initData() {
@@ -147,6 +223,7 @@ public class MealsChooseActivity extends AppCompatActivity {
         mSourCheckBox = findViewById(R.id.sourCheckBox);
         mSeekBar = findViewById(R.id.seekBar);
         mSeekBar.setProgress(30);
+        mPrice = mSeekBar.getProgress();
         mSearchButton =  findViewById(R.id.searchButton);
         mShowToggleButton = findViewById(R.id.showToggleButton);
         mShowToggleButton.setChecked(true);
